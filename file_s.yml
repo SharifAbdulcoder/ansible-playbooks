@@ -1,0 +1,11 @@
+---
+- name: File 
+  hosts: web
+  task:
+    name: File 
+    file: 
+      path: /etc/fstab
+      owner: ben 
+      group: bob
+      state: file
+...

@@ -1,0 +1,21 @@
+---
+- name: Add user
+  hosts: all 
+  tasks: 
+    - name: Useradd bob 
+      user: 
+        name: bob
+        state: present
+
+
+    - name: Useradd Ben
+      user: 
+        name: ben
+        state: present 
+
+
+    - name: Useradd Ben
+      user: 
+        name: Lisa
+        state: present
+        groups: sales

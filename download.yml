@@ -1,0 +1,9 @@
+---
+- hosts: Web
+  tasks: 
+   - name: Downlaod some files
+     get_url: 
+        url: http://ewr.edge.kernel.org/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-1804.iso
+        dest: /tmp/VMGuestAddition.sh
+        mode: 0755
+... 

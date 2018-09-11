@@ -1,0 +1,11 @@
+---
+- name: Install cool stuff
+  hosts: Client
+  tasks:
+    - name: Installing group of packages 
+      yum:
+        name: autofs
+        state: absent
+                
+     
+
