@@ -5,14 +5,13 @@
       - name: region
         prompt: "Please enter region"
         private: no
-
     vars_prompt:
       - name: ID
         prompt: "Please enter instance_id"
         private: no
-
     tasks:
       - name: terraform destroy
-        instance_ids: "{{ID}}"
-        state: absent
-        region: "{{region}}"
+        ec2:
+          instance_ids: "{{ID}}"
+          state: absent
+          region: "{{region}}"
