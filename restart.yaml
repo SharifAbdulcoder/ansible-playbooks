@@ -1,0 +1,11 @@
+---
+  - name:
+    hosts: all
+    vars_prompt:
+      - name: OS_TYPE
+        prompt: "What OS to restart"
+        private: no
+    tasks:
+      - name: Restart
+        when: ansible_distribution == "{{OS_TYPE}}"
+        reboot:
