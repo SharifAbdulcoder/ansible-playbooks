@@ -1,0 +1,34 @@
+---
+- name: Installing Wordpress
+  hosts: web
+  become: yes
+  become_method: sudo
+  gather_facts: no
+  ignore_errors: true
+  connection: ssh
+  tasks:
+  - name: Step 1
+    package:
+      name: "{{item}}"
+      state: latests
+    with_items:
+    - php-gd
+    - httpd
+    - mysql
+    - mariadb-server
+    - php
+    - php-mysql
+    - php-fpm
+    - wget
+    - vim
+    - unzip
+    - zip
+    - elinks
+    ignore_errors: true
+
+  - name: Download 1 package
+    get_url:
+      url: "https://wordpress.org/latest.zip"
+      dest: /tmp/
+
+  - name:
