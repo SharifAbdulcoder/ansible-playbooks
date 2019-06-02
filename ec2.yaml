@@ -1,13 +1,17 @@
 ---
   - name:
     hosts: localhost
+    vars_prompt:
+      - name: region
+        prompt: "Please enter region"
+        private: no
     tasks:
       - name: Creating ec2-instance
         ec2:
           key_name: terraform
           instance_type: t2.micro
           image: ami-085b0a9d40a107710
-          group: webserver
           count: 3
           vpc_subnet_id: subnet-07a1fa6f
           assign_public_ip: yes
+          region: "{{region}}"
