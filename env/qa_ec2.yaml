@@ -2,7 +2,7 @@
   - name:
     hosts: localhost
     vars_files:
-      - ec2_vars
+      - env/qa_vars
     tasks:
       - name: Creating ec2-instance
         ec2:

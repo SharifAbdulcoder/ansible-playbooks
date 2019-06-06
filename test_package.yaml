@@ -1,6 +1,8 @@
 ---
 - name:
   hosts: localhost
+  vars_files:
+    - extra_vars
   tasks:
     - name: Install package
       package:
