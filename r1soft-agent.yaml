@@ -1,11 +1,11 @@
 ---
 - name: Install r1soft-agent
-  hosts: target
+  hosts: all
   become: yes
   become_method: sudo
   tasks:
-    - name: Create Repository
-      block:
+    - block:
+      - name: Create Repository
         copy:
           src: r1soft.repo
           dest: /etc/yum.repo.d/r1soft
@@ -13,7 +13,7 @@
       - name: Install r1soft-agent
         package:
           name: serverbackup-enterprise-agent
-          state: latest
+          state: present
 
       - name: Start Engine
         systemd:
@@ -28,8 +28,9 @@
 
 ############## CENTOS 6 ##############
 
-    - name: Create Repository
-      block:
+
+    - block:
+      - name: Create Repository
         copy:
           src: r1soft.repo
           dest: /etc/yum.repo.d/r1soft
@@ -37,7 +38,7 @@
       - name: Install r1soft-agent
         package:
           name: serverbackup-enterprise-agent
-          state: latest
+          state: present
 
       - name: Start Engine
         service:

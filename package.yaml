@@ -1,9 +1,8 @@
 ---
 - name:
-  hosts: all
+  hosts:
   tasks:
     - name: Intsall 1 package
       package:
         name: httpd
         state: present
-        
