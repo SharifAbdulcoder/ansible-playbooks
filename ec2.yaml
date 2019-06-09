@@ -1,8 +1,6 @@
 ---
   - name:
     hosts: localhost
-    vars_files:
-      - ec2_vars
     tasks:
       - name: Creating ec2-instance
         ec2:
@@ -12,5 +10,5 @@
           count: {{count}}
           vpc_subnet_id: {{vpc_subnet_id}}
           region: "{{region}}"
-          user_data: "{{ lookup('file', 'user_data.sh') }}"
-          # assign_public_ip: yes
+          # user_data: "{{ lookup('file', 'user_data.sh') }}"
+          assign_public_ip: yes
