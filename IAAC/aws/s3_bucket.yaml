@@ -1,0 +1,7 @@
+---
+- name: Create/Delete S3 bucket
+  hosts:
+  tasks:
+    - name: S3 management
+      s3:
+        bucket: "{{bucket}}"
