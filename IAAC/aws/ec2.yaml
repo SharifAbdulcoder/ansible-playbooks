@@ -1,14 +1,12 @@
 ---
-  - name:
-    hosts: localhost
-    tasks:
-      - name: Creating ec2-instance
-        ec2:
-          key_name: {{key_name}}
-          instance_type: {{instance_type}}
-          image: {{image}}
-          count: {{count}}
-          vpc_subnet_id: {{vpc_subnet_id}}
-          region: "{{region}}"
-          # user_data: "{{ lookup('file', 'user_data.sh') }}"
-          assign_public_ip: yes
+- name: Creates ec2 instance
+  hosts: localhost
+  tasks:
+    - name: Create instances
+      ec2:
+        key_name: "{{key_name}}"
+        instance_type: "{{instance_type}}"
+        image: "{{image}}"
+        count: "{{count}}"
+        vpc_subnet_id: "{{vpc_subnet_id}}"
+        region: "{{region}}"
