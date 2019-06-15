@@ -1,2 +1,27 @@
 ---
 # tasks file for wordpress
+  - name: Step 1
+    package:
+      name: "{{item}}"
+      state: latests
+    with_items:
+    - php-gd
+    - httpd
+    - mysql
+    - mariadb-server
+    - php
+    - php-mysql
+    - php-fpm
+    - wget
+    - vim
+    - unzip
+    - zip
+    - elinks
+    ignore_errors: true
+
+  - name: Download 1 package
+    get_url:
+      url: "https://wordpress.org/latest.zip"
+      dest: /tmp/
+
+  - name:
